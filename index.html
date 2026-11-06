@@ -10,34 +10,23 @@
   <style>
 /* Theme colours */
 :root {
-  --bg: #100e0c;
-  --bg-alt: #171411;
-  --text: #f4efe8;
-  --muted: #9a928a;
-  --line: #2a2521;
-  --accent: #eba04e;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #faf6f0;
-    --bg-alt: #f1eadf;
-    --text: #1b1713;
-    --muted: #6e655b;
-    --line: #ddd3c4;
-    --accent: #c9741a;
-  }
-}
-
-:root[data-theme="light"] {
   --bg: #faf6f0;
   --bg-alt: #f1eadf;
   --text: #1b1713;
   --muted: #6e655b;
   --line: #ddd3c4;
   --accent: #c9741a;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+ :root[data-theme="dark"] {
+  --bg: #100e0c;
+  --bg-alt: #171411;
+  --text: #f4efe8;
+  --muted: #9a928a;
+  --line: #2a2521;
+  --accent: #eba04e;
 }
 
 /* Base */
@@ -641,7 +630,7 @@ footer {
       <li><a href="#" id="resume-link">Resume</a></li>
     </ul>
     <div class="navbar-actions">
-      <button id="theme-toggle" type="button" aria-label="Toggle theme">theme</button>
+      <button id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">☾</button>
       <button id="menu-toggle" type="button" aria-label="Menu">menu</button>
     </div>
   </header>
@@ -929,11 +918,15 @@ document.querySelectorAll('.reveal').forEach(el => {
   observer.observe(el);
 });
 
-// Theme toggle
-document.getElementById('theme-toggle').addEventListener('click', () => {
-  const current = root.dataset.theme ||
-    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-  root.dataset.theme = current === 'light' ? 'dark' : 'light';
+// Theme toggle: start light; show the moon when dark mode is available.
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+  const isDark = root.dataset.theme !== 'dark';
+  if (isDark) root.dataset.theme = 'dark';
+  else delete root.dataset.theme;
+  themeToggle.textContent = isDark ? '☀' : '☾';
+  themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+  themeToggle.title = isDark ? 'Switch to light theme' : 'Switch to dark theme';
 });
 
 // Mobile menu
