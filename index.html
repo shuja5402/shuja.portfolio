@@ -418,6 +418,10 @@ h1 .muted { color: var(--muted); }
 
 .repo-link:hover { color: var(--accent); }
 
+.project-links { display: flex; justify-content: flex-end; gap: 12px; margin-top: 12px; }
+.project-links a { display: inline-flex; align-items: center; gap: 5px; }
+.project-links svg { width: 15px; height: 15px; fill: currentColor; }
+
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .tags span {
@@ -671,6 +675,7 @@ footer {
     <symbol id="icon-github" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></symbol>
     <symbol id="icon-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
     <symbol id="icon-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6m0-6-9 9"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></symbol>
   </svg>
 
   <div id="progress-bar"></div>
@@ -684,7 +689,7 @@ footer {
       <li><a href="#projects">Projects</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="#" id="resume-link">Resume</a></li>
+      <li><a href="assets/resume.pdf" id="resume-link" target="_blank" rel="noopener">Resume</a></li>
     </ul>
     <div class="navbar-actions">
       <button id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">☾</button>
@@ -712,7 +717,7 @@ footer {
       <p class="lead">Computer Science undergrad and Fullstack Web App Development Intern at Valentius Kryptix. I build React front ends and MERN stack applications — Project Expo 2025 winner and Smart India Hackathon college finalist.</p>
       <div class="button-row">
         <a class="btn" href="#projects">See selected work ↗</a>
-        <button class="btn ghost" id="resume-button" type="button">View resume</button>
+        <a class="btn ghost" id="resume-button" href="assets/resume.pdf" target="_blank" rel="noopener">View resume</a>
         <a class="label muted-link" href="#contact">Get in touch</a>
       </div>
       <div class="social-links">
@@ -775,8 +780,8 @@ server-client data flow.</li>
         <span class="label">01</span>
         <div>
           <h3>FrameFetch</h3>
-          <p>A high-performance movie discovery web app built with React, leveraging Redux Toolkit for seamless global state management and live API data synchronization.</p>
-          <div class="tags"><span>React</span><span>Redux Toolkit</span><span>REST API</span><span>JavaScript</span><span>CSS</span></div>
+          <p>A fast, responsive movie discovery app that helps users explore films with up-to-date information from a live API.</p>
+          <div class="tags"><span>React</span><span>REST API</span><span>JavaScript</span><span>CSS</span></div>
         </div>
         <div class="entry-meta">Frontend<a class="repo-link" href="https://github.com/shuja5402" target="_blank" rel="noopener">GitHub ↗</a></div>
       </article>
@@ -784,7 +789,7 @@ server-client data flow.</li>
         <span class="label">02</span>
         <div>
           <h3>RecipeHub</h3>
-          <p>A food e-commerce and recipe platform on the MERN stack: a React front end talking to a Node.js and Express API backed by MongoDB.</p>
+          <p>A food and recipe platform featuring 50+ recipes shared across the platform, alongside a smooth browsing experience for food lovers.</p>
           <div class="tags"><span>MongoDB</span><span>Express.js</span><span>React</span><span>Node.js</span><span>MERN</span></div>
         </div>
         <div class="entry-meta">MERN<a class="repo-link" href="https://github.com/shuja5402" target="_blank" rel="noopener">GitHub ↗</a></div>
@@ -792,11 +797,18 @@ server-client data flow.</li>
       <article class="entry project reveal">
         <span class="label">03</span>
         <div>
-          <h3>Attendance Tracking System</h3>
-          <p>A full-stack MERN application for tracking attendance, with a React interface, Node.js and Express API and MongoDB storage.</p>
-          <div class="tags"><span>MongoDB</span><span>Express.js</span><span>React</span><span>Node.js</span><span>MERN</span></div>
+          <h3>Student Management System</h3>
+          <ul class="entry-points">
+            <li>Developed a centralized platform to securely store, organize, and manage student profiles and academic records.</li>
+            <li>Created clear workflows for administrators to add students, update details, and quickly retrieve records.</li>
+          </ul>
+          <div class="tags"><span>React</span><span>Node.js</span><span>Express</span></div>
         </div>
-        <div class="entry-meta">MERN<a class="repo-link" href="https://github.com/shuja5402" target="_blank" rel="noopener">GitHub ↗</a></div>
+        <div class="entry-meta">Academic project
+          <div class="project-links">
+            <a href="https://github.com/shuja5402" target="_blank" rel="noopener" aria-label="Student Management System GitHub"><svg><use href="#icon-github"/></svg>GitHub</a>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -836,7 +848,7 @@ server-client data flow.</li>
       <div class="section-head reveal"><span class="label">06</span><h2>Certs &amp; wins</h2></div>
       <div class="grid-box">
         <div class="reveal"><span class="label">Achievements</span><ul><li>Winner — Project Expo 2025 (SPARK 3.0)</li><li>College finalist — Smart India Hackathon</li><li>Participant — Flipr Hackathon</li></ul></div>
-        <div class="reveal"><span class="label">Certifications</span><ul><li>Deloitte Technology Job Simulation</li><li>Data Visualization — freeCodeCamp</li><li>Database Management Systems — Scaler</li><li>Complete SQL Course — QACard</li><li>Data Science Foundations</li></ul></div>
+        <div class="reveal"><span class="label">Certifications</span><ul><li>Deloitte Technology Job Simulation</li><li>Data Visualization — freeCodeCamp</li><li>Database Management Systems — Scaler</li><li>Complete SQL Course — QACard</li><li>SQL (Basic) — HackerRank</li><li>Data Science Foundations</li></ul></div>
       </div>
     </section>
 
@@ -939,7 +951,7 @@ function type() {
 type();
 
 // Skills ticker (list is repeated so the loop looks continuous)
-const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux Toolkit', 'Node.js', 'Express.js',
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express.js',
   'MERN Stack', 'REST APIs', 'Tailwind CSS', 'MongoDB', 'MySQL', 'SQL Queries', 'Python',
   'Git', 'GitHub Actions', 'Vercel', 'Render'];
 const tickerHtml = skills.map(name => `<span>${name}</span><i>•</i>`).join('');
@@ -1009,8 +1021,6 @@ function closeResume() {
   document.body.style.overflow = '';
 }
 
-document.getElementById('resume-link').addEventListener('click', openResume);
-document.getElementById('resume-button').addEventListener('click', openResume);
 document.getElementById('close-resume').addEventListener('click', closeResume);
 resumeModal.addEventListener('click', e => {
   if (e.target === resumeModal) closeResume();
