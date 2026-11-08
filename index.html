@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Portfolio of Syed Shujauddin, a Computer Science student and fullstack web development intern based in Hyderabad.">
+  <meta name="description" content="Portfolio of Syed Shujauddin, a Computer Science student and full-stack web development intern based in Hyderabad.">
   <title>Syed Shujauddin | Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
 /* Theme colours */
 :root {
-  --bg: #faf6f0;
-  --bg-alt: #f1eadf;
-  --text: #1b1713;
-  --muted: #6e655b;
-  --line: #ddd3c4;
-  --accent: #c9741a;
+  --bg: #111a23;
+  --bg-alt: #192733;
+  --text: #f4f6f7;
+  --muted: #a4b2bf;
+  --line: #2c3a46;
+  --accent: #9ab5c9;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
- :root[data-theme="dark"] {
-  --bg: #100e0c;
-  --bg-alt: #171411;
-  --text: #f4efe8;
-  --muted: #9a928a;
-  --line: #2a2521;
-  --accent: #eba04e;
+:root[data-theme="light"] {
+  --bg: #f1f1ed;
+  --bg-alt: #e7e9e7;
+  --text: #17232d;
+  --muted: #687987;
+  --line: #d1d8da;
+  --accent: #7898ae;
 }
 
 /* Base */
@@ -48,15 +48,15 @@ a { color: inherit; text-decoration: none; }
 ul { padding: 0; }
 
 h1, h2, h3 {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'DM Sans', system-ui, sans-serif;
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.05;
 }
 
 .label {
-  font: 500 11px/1 'JetBrains Mono', monospace;
-  letter-spacing: 0.14em;
+  font: 700 10px/1.2 'DM Sans', system-ui, sans-serif;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -76,7 +76,7 @@ main, footer {
 
 section { padding: 110px 0 30px; }
 
-/* Progress bar and cursor glow */
+/* Scroll progress */
 #progress-bar {
   position: fixed;
   top: 0;
@@ -85,15 +85,6 @@ section { padding: 110px 0 30px; }
   width: 0;
   background: var(--accent);
   z-index: 60;
-}
-
-#cursor-glow {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: radial-gradient(500px circle at var(--x, 70%) var(--y, 20%),
-    color-mix(in srgb, var(--accent) 11%, transparent), transparent 60%);
 }
 
 /* Navbar */
@@ -106,35 +97,27 @@ section { padding: 110px 0 30px; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px max(24px, calc(50vw - 540px));
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(12px);
+  padding: 18px max(24px, calc(50vw - 540px));
+  background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
 
-.logo { font: 500 14px 'JetBrains Mono', monospace; }
+.logo { font: 600 14px 'DM Sans', system-ui, sans-serif; letter-spacing: -0.02em; }
 
 .logo i {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 8px;
-  border-radius: 50%;
-  background: var(--accent);
+  display: none;
 }
 
 .navbar ul {
   display: flex;
-  gap: 26px;
+  gap: 30px;
   list-style: none;
 }
 
 .navbar ul a {
-  font: 500 11px 'JetBrains Mono', monospace;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font: 500 13px 'DM Sans', system-ui, sans-serif;
   color: var(--muted);
-  transition: color 0.2s;
+  transition: color 0.2s, background-color 0.2s;
 }
 
 .navbar ul a:hover,
@@ -143,13 +126,18 @@ section { padding: 110px 0 30px; }
 .navbar-actions { display: flex; gap: 10px; align-items: center; }
 
 #theme-toggle, #menu-toggle {
-  background: none;
+  background: transparent;
   border: 1px solid var(--line);
-  color: var(--muted);
-  border-radius: 20px;
-  padding: 4px 12px;
-  font: 11px 'JetBrains Mono', monospace;
+  color: var(--text);
+  border-radius: 0;
+  padding: 8px 12px;
+  font: 500 12px 'DM Sans', system-ui, sans-serif;
   cursor: pointer;
+}
+
+#theme-toggle:hover, #menu-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 #menu-toggle { display: none; }
@@ -217,8 +205,8 @@ section { padding: 110px 0 30px; }
   height: 104px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid var(--line);
+  box-shadow: none;
 }
 
 h1 {
@@ -252,19 +240,20 @@ h1 .muted { color: var(--muted); }
 
 .btn {
   display: inline-block;
-  background: var(--accent);
-  color: #17110a;
+  background: var(--text);
+  color: var(--bg);
   padding: 12px 22px;
   border: 0;
-  border-radius: 30px;
+  border-radius: 0;
   font: 500 14px 'DM Sans', sans-serif;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent);
+  background: var(--accent);
+  box-shadow: none;
 }
 
 .btn.ghost {
@@ -308,7 +297,7 @@ h1 .muted { color: var(--muted); }
 #ticker-track {
   display: inline-block;
   animation: scroll-left 30s linear infinite;
-  font: 500 11px 'JetBrains Mono', monospace;
+  font: 500 12px 'DM Sans', system-ui, sans-serif;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -373,7 +362,7 @@ h1 .muted { color: var(--muted); }
 
 .stat b {
   display: block;
-  font: 500 38px 'Space Grotesk', sans-serif;
+  font: 500 38px 'DM Sans', system-ui, sans-serif;
   color: var(--accent);
 }
 
@@ -404,7 +393,7 @@ h1 .muted { color: var(--muted); }
 .entry-meta {
   text-align: right;
   color: var(--muted);
-  font: 11px 'JetBrains Mono', monospace;
+  font: 500 12px 'DM Sans', system-ui, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -428,7 +417,7 @@ h1 .muted { color: var(--muted); }
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 4px 11px;
-  font: 11px 'JetBrains Mono', monospace;
+  font: 500 11px 'DM Sans', system-ui, sans-serif;
   color: var(--muted);
   text-transform: uppercase;
 }
@@ -616,7 +605,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #121212;
+  background-color: var(--bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -629,7 +618,7 @@ footer {
 .shuja-branding-wrapper {
   display: flex;
   align-items: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'DM Sans', system-ui, sans-serif;
   font-weight: 700;
   font-size: 2.8rem;
   letter-spacing: -0.5px;
@@ -679,8 +668,6 @@ footer {
   </svg>
 
   <div id="progress-bar"></div>
-  <div id="cursor-glow"></div>
-
   <header class="navbar">
     <a class="logo" href="#top"><i></i>syed.shuja</a>
     <ul id="nav-links">
@@ -689,10 +676,10 @@ footer {
       <li><a href="#projects">Projects</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="resume.pdf" id="resume-link" target="_blank" rel="noopener">Resume</a></li>
+      <li><a href="assets/resume.pdf" id="resume-link" target="_blank" rel="noopener">Resume</a></li>
     </ul>
     <div class="navbar-actions">
-      <button id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">☾</button>
+      <button id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">Light</button>
       <button id="menu-toggle" type="button" aria-label="Menu">menu</button>
     </div>
   </header>
@@ -714,10 +701,10 @@ footer {
         <span class="label">Hyderabad, India — open to new opportunities</span>
       </div>
       <h1>Syed Shujauddin <span class="muted">builds software</span><br><span id="typed-text"></span><span id="caret"></span></h1>
-      <p class="lead">Computer Science undergrad and Fullstack Web App Development Intern at Valentius Kryptix. I build React front ends and MERN stack applications — Project Expo 2025 winner and Smart India Hackathon college finalist.</p>
+      <p class="lead">Computer Science undergrad and Full-Stack Web App Development Intern at Valentius Kryptix. I build React front-end applications and MERN stack projects — Project Expo 2025 winner and Smart India Hackathon college finalist.</p>
       <div class="button-row">
         <a class="btn" href="#projects">See selected work ↗</a>
-        <a class="btn ghost" id="resume-button" href="resume.pdf" target="_blank" rel="noopener">View resume</a>
+        <a class="btn ghost" id="resume-button" href="assets/resume.pdf" target="_blank" rel="noopener">View resume</a>
         <a class="label muted-link" href="#contact">Get in touch</a>
       </div>
       <div class="social-links">
@@ -739,7 +726,7 @@ footer {
           <p>I’m continuously expanding my skills in frontend and backend development, exploring new technologies, and strengthening my problem-solving abilities. My goal is to build impactful software products and grow as a software engineer.</p>
         </div>
         <dl class="facts">
-          <dt class="label">Currently</dt><dd>Fullstack Web App Dev Intern, Valentius Kryptix</dd>
+          <dt class="label">Currently</dt><dd>Full-Stack Web App Development Intern, Valentius Kryptix</dd>
           <dt class="label">Studying</dt><dd>B.Tech CSE, Lords Institute — 2024–2028</dd>
           <dt class="label">Focus</dt><dd>Software Engineer</dd>
           <dt class="label">Based in</dt><dd>Hyderabad, India</dd>
@@ -759,13 +746,11 @@ footer {
       <article class="entry reveal">
         <span class="label">01</span>
         <div>
-          <h3>Fullstack Web App Development Intern</h3>
+          <h3>Full-Stack Web App Development Intern</h3>
           <span class="label">Valentius Kryptix</span>
           <ul class="entry-points">
-            <li>◦ Developed and deployed a scalable, fully responsive full-stack web application from scratch using
-React.js for the front-end and Node.js / Express.js for the back-end..</li>
-            <li>◦ Engineered secure RESTful APIs to handle user authentication, database operations, and seamless
-server-client data flow.</li>
+            <li>Developed and deployed a scalable, fully responsive full-stack web application from scratch using React.js for the front end and Node.js and Express.js for the back end.</li>
+            <li>Engineered secure RESTful APIs to handle user authentication, database operations, and seamless server-client data flow.</li>
           </ul>
           <a class="btn verify" href="https://interns.valentiuskryptix.com/syed-shujauddin" target="_blank" rel="noopener">Verify internship ↗</a>
         </div>
@@ -783,7 +768,11 @@ server-client data flow.</li>
           <p>A fast, responsive movie discovery app that helps users explore films with up-to-date information from a live API.</p>
           <div class="tags"><span>React</span><span>REST API</span><span>JavaScript</span><span>CSS</span></div>
         </div>
-        <div class="entry-meta">Frontend<a class="repo-link" href="https://github.com/shuja5402" target="_blank" rel="noopener">GitHub ↗</a></div>
+        <div class="entry-meta">Frontend
+          <div class="project-links">
+            <a href="https://github.com/shuja5402" target="_blank" rel="noopener" aria-label="FrameFetch GitHub"><svg><use href="#icon-github"/></svg>GitHub</a>
+          </div>
+        </div>
       </article>
       <article class="entry project reveal">
         <span class="label">02</span>
@@ -792,7 +781,11 @@ server-client data flow.</li>
           <p>A food and recipe platform featuring 50+ recipes shared across the platform, alongside a smooth browsing experience for food lovers.</p>
           <div class="tags"><span>MongoDB</span><span>Express.js</span><span>React</span><span>Node.js</span><span>MERN</span></div>
         </div>
-        <div class="entry-meta">MERN<a class="repo-link" href="https://github.com/shuja5402" target="_blank" rel="noopener">GitHub ↗</a></div>
+        <div class="entry-meta">MERN
+          <div class="project-links">
+            <a href="https://github.com/shuja5402" target="_blank" rel="noopener" aria-label="RecipeHub GitHub"><svg><use href="#icon-github"/></svg>GitHub</a>
+          </div>
+        </div>
       </article>
       <article class="entry project reveal">
         <span class="label">03</span>
@@ -882,8 +875,8 @@ server-client data flow.</li>
       <div class="resume-head">
         <span class="label">Resume — Syed Shujauddin</span>
         <div class="button-row">
-          <a class="btn" id="download-resume" href="resume.pdf" download="Syed_Shujauddin_Resume.pdf">Download PDF ↓</a>
-          <a class="btn ghost" id="open-resume" href="resume.pdf" target="_blank" rel="noopener">Open PDF ↗</a>
+          <a class="btn" id="download-resume" href="assets/resume.pdf" download="Syed_Shujauddin_Resume.pdf">Download PDF ↓</a>
+          <a class="btn ghost" id="open-resume" href="assets/resume.pdf" target="_blank" rel="noopener">Open PDF ↗</a>
           <button class="btn ghost" id="close-resume" type="button">Close ✕</button>
         </div>
       </div>
@@ -917,13 +910,6 @@ function onScroll() {
 window.addEventListener('scroll', onScroll);
 
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0 }));
-
-// Soft glow that follows the pointer
-window.addEventListener('pointermove', e => {
-  const glow = document.getElementById('cursor-glow').style;
-  glow.setProperty('--x', e.clientX + 'px');
-  glow.setProperty('--y', e.clientY + 'px');
-});
 
 // Typing effect in the hero heading
 const phrases = ['end to end', 'with React & Node', 'that ships', 'and sweats details'];
@@ -989,15 +975,14 @@ document.querySelectorAll('.reveal').forEach(el => {
   observer.observe(el);
 });
 
-// Theme toggle: start light; show the moon when dark mode is available.
+// Theme toggle: start dark and keep the available theme explicit.
 const themeToggle = document.getElementById('theme-toggle');
 themeToggle.addEventListener('click', () => {
-  const isDark = root.dataset.theme !== 'dark';
-  if (isDark) root.dataset.theme = 'dark';
-  else delete root.dataset.theme;
-  themeToggle.textContent = isDark ? '☀' : '☾';
-  themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
-  themeToggle.title = isDark ? 'Switch to light theme' : 'Switch to dark theme';
+  const isDark = root.dataset.theme === 'dark';
+  root.dataset.theme = isDark ? 'light' : 'dark';
+  themeToggle.textContent = isDark ? 'Dark' : 'Light';
+  themeToggle.setAttribute('aria-label', isDark ? 'Switch to dark theme' : 'Switch to light theme');
+  themeToggle.title = isDark ? 'Switch to dark theme' : 'Switch to light theme';
 });
 
 // Mobile menu
@@ -1015,6 +1000,7 @@ function openResume(e) {
   document.body.style.overflow = 'hidden';
   navLinks.classList.remove('open');
 }
+
 
 function closeResume() {
   resumeModal.classList.remove('open');
