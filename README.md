@@ -9,20 +9,14 @@ Plain HTML, CSS and JavaScript. No build step, nothing to install.
 ```
 index.html        the whole site (markup, styles and script in one file)
 assets/resume.pdf my resume
-certificates/     certificate PDFs linked from my resume
-vercel.json       Vercel settings
-```
+
+
 
 ## Run locally
 
 Open `index.html` in a browser.
 
-## Deploy on Vercel
 
-1. Push these files to a GitHub repository, with `index.html` in the root.
-2. On vercel.com choose Add New > Project and import the repository.
-3. Set Framework Preset to "Other" and leave the build command and output directory empty.
-4. Click Deploy.
 
 ## Deploy on GitHub Pages
 
